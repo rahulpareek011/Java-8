@@ -49,7 +49,7 @@ public class Main{
 		
 		//equal() - static method
 		Predicate<String> isVipul = Predicate.isEqual("Vipul");
-		System.out.println(isVipul.test("Vipl"));
+		System.out.println(isVipul.test("Vipul"));//true
 	}
 
 }
