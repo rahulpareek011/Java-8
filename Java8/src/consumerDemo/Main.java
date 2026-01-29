@@ -29,6 +29,5 @@ public class Main {
 		};
 		Consumer<List<Integer>> listConsumer = listConsumer2.andThen(listConsumer1);
 		listConsumer.accept(Arrays.asList(1,2,3,4));
-		
 	}
 }
