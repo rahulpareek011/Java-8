@@ -2,7 +2,9 @@ package streamPractice;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
@@ -150,5 +152,37 @@ public class Main {
 				.count();//returns total value
 			System.out.println();
 			System.out.println(value2);
+			
+		System.out.println();
+		System.out.println("reduce() in stream: ");
+		
+		//reduce() is a terminal operation in this we combine stream elements repeatedly 
+		//using a BinaryOperator to produce a single value.
+		/*
+		 	Use reduce() when:
+			You want one result from many elements
+			Operations like: sum, max, min, product, string concatenation, custom aggregation
+		*/
+		//reduce(BinaryOperator<T>)
+		List<Integer> list5 = List.of(1, 2, 3, 4);
+
+		Optional<Integer> sum =
+		    list5.stream()
+		        .reduce((a, b) -> a + b);
+
+		System.out.println(sum.get()); // 10
+		System.out.println();
+		
+		//reduce(T identity, BinaryOperator<T>) - in identity we pass default value in case stream is empty
+		int sum2 =
+			    list5.stream()
+			        .reduce(0, (a, b) -> a + b);
+
+			System.out.println(sum); // 10
+			
+		Stream.iterate(1, (n) -> n+1).limit(10).sorted((a,b)->b-a).forEach((i) -> System.out.println(i));
+		//IntStream.range(1, 6).forEach((i)-> System.out.println(i));
+		
+			
 	}
 }
